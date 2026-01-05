@@ -49,8 +49,8 @@ async function handler(request, response) {
 
 const server = http.createServer(handler);
 
-server.listen(8888);
+server.listen(8889);
 
 server.on("listening", () => {
-  console.log(`服务器正在监听：${server.address().port}端口，访问路径：http://localhost:8888`);
+  console.log(`服务器正在监听：${server.address().port}端口，访问路径：http://localhost:8889`);
 });
