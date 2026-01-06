@@ -1,13 +1,17 @@
-const http = require("node:http");
+//静态资源服务器
+// http://localhost:9527/index.html  -> public/index.html 文件内容
+// http://localhost:9527/css/index.css  -> public/css/index.css 文件内容
+
+const https = require("node:https");
 const URL = require("node:url");
 const path = require("node:path");
 const fs = require("node:fs");
 
 
 async function getFileState(filePath) {
-  console.log('filePath', filePath);
+  // console.log('filePath', filePath);
   try {
-    return  await fs.promises.stat(filePath);
+    return await fs.promises.stat(filePath);
   } catch (err) {
     // 文件不存在
     return null;
@@ -50,10 +54,15 @@ async function handler(request, response) {
   response.end();
 }
 
-const server = http.createServer(handler);
+const server = https.createServer(
+  {
+    key: fs.readFileSync(path.resolve(__dirname, "./server-key.pem")), // 服务器私钥
+    cert: fs.readFileSync(path.resolve(__dirname, "./server-cert.crt")), // 服务器证书
+  },
+  handler);
 
-server.listen(8888);
+server.listen(443);
 
 server.on("listening", () => {
-  console.log(`服务器正在监听：${server.address().port}端口，访问路径：http://localhost:8888`);
+  console.log(`服务器正在监听：${server.address().port}端口，访问路径：https://localhost:8888`);
 });
