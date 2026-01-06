@@ -5,6 +5,7 @@ const fs = require("node:fs");
 
 
 async function getFileState(filePath) {
+  console.log('filePath', filePath);
   try {
     return  await fs.promises.stat(filePath);
   } catch (err) {
@@ -46,20 +47,7 @@ async function handler(request, response) {
     response.statusCode = 404;
     response.write("Resource is not exist!");
   }
-
   response.end();
-
-  /* // 不推荐下面写法
-  if (!content) {
-    response.statusCode = 404;
-    response.write("Resource is not exist!");
-    response.end();
-    return
-  }
-
-  response.write(content);
-  response.end();
-  * */
 }
 
 const server = http.createServer(handler);
