@@ -7,11 +7,10 @@ module.exports = class MyRequest extends EventEmitter {
     super();
     this.url = url;
     this.options = options;
-    this.request();
   }
 
-  request() {
-    http.request(this.url, (response) => {
+  send(body = '') {
+    const handleResponseCallback = (response) => {
       let responseBody = "";
       response.on("data", (chunk) => {
         responseBody += chunk.toString("utf-8");
@@ -20,10 +19,11 @@ module.exports = class MyRequest extends EventEmitter {
       response.on("end", () => {
         this.emit("response", response.headers, responseBody);
       });
+    };
+    const request = http.request(this.url, this.options, handleResponseCallback);
 
-      response.on("close", () => {
-        this.emit("response", response.headers, responseBody);
-      });
-    });
+    request.write(body);
+    // 如果没有请求体需要
+    request.end();
   }
 };
