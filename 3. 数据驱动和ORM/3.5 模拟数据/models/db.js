@@ -4,7 +4,7 @@ const {Sequelize} = require("sequelize");
 const sequelize = new Sequelize("myschooldb", "root", "123456", {
   host: "localhost",
   dialect: "mysql",
-  logging: false
+  // logging: false
 });
 
 // 使用 .authenticate() 函数测试连接是否正常

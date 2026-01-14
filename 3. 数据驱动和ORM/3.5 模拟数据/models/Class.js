@@ -22,7 +22,7 @@ const Class = sequelize.define("Class", {
 });
 
 // 关系
-Class.hasMany(Student);
+// Class.hasMany(Student);
 // Student.belongsTo(Class)
 
 // module.export = Class;
