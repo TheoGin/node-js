@@ -3,6 +3,12 @@
   <component name="SqlDialectMappings">
     <file url="file://$PROJECT_DIR$/2. MySql/2.3 数据库设计/foreignKey.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/2. MySql/2.4 表记录的增删改/crud.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/2. MySql/2.5 单表基本查询/companydb.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/2. MySql/2.5 单表基本查询/order by .sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/2. MySql/2.5 单表基本查询/select distinct.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/2. MySql/2.5 单表基本查询/select.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/2. MySql/2.5 单表基本查询/where.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/2. MySql/2.5 单表基本查询/练习.sql" dialect="MySQL" />
     <file url="PROJECT" dialect="MySQL" />
   </component>
 </project>
