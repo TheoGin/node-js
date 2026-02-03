@@ -51,7 +51,8 @@ from employee e
          inner join companydb.department d on e.deptid = d.id
          inner join company c on d.companyid = c.id
 -- where c.name = '渡一教育' and d.name = '教学部';
-where c.name like '%渡一%' and d.name = '教学部';
+where c.name like '%渡一%'
+  and d.name = '教学部';
 
 -- 5. 列出所有公司员工居住的地址（要去掉重复）
 select distinct e.location
